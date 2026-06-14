@@ -12,6 +12,11 @@ a {
     text-decoration: underline;
 }
 
+small {
+    color: rgb(204, 204, 204);
+    font-size: 12px;
+}
+
 .navbar {
     display: flex;
     align-items: center;
@@ -267,12 +272,16 @@ footer {
 }
 
 #footer-text {
+    display: inline-block;
+
     width: 80%;
     text-align: justify;
 
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
+
+    line-height: 24px;
 }
 
 .project-row {
@@ -309,6 +318,10 @@ footer {
 
 .project-row a:hover .project {
     transform: scale(1.03);
+}
+
+.offsite-link {
+    display: block;
 }
 
 .project-title {
@@ -399,4 +412,13 @@ footer {
     justify-content: center;
     gap: 50px;
     margin: 20px;
+}
+
+#github-redirect {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-right: 50px;
+    margin-left: 20px;
+
+    font-size: 14px;
 }
