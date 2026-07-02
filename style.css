@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
-@import url('mangat.ttf');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 body {
     background-color: rgb(20, 30, 45);
@@ -69,6 +72,8 @@ small {
     color: white;
     text-decoration: none;
     overflow: hidden;
+
+    transition: transform 0.2s ease-in-out;
 }
 
 .nav-links {
@@ -79,6 +84,7 @@ small {
 .nav:hover {
     border-radius: 10px;
     background-color: rgb(34, 53, 72);
+    transform: scale(1.05);
 }
 
 #active {
@@ -134,11 +140,12 @@ small {
 }
 
 .section {
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    display: block;
+
+    margin: 50px auto;
     padding: 20px;
+    width: min(75%, 1024px);
+    max-width: 100%;
     
     border: 5px solid rgb(34, 53, 72);
     border-radius: 15px;
@@ -170,7 +177,7 @@ small {
 .section-title {
     color:white;
     text-align: center;
-    width: 80%;
+    width: min(90%, 800px);
 
     margin: auto;
     margin-top: 20px;
@@ -180,11 +187,10 @@ small {
     border-radius: 15px;
     background-color: rgb(43, 67, 92);
 
-    padding-top: 40px;
-    padding-bottom: 30px;
+    padding: 30px;
 
     font-family: 'Comfortaa';
-    font-size: 40px;
+    font-size: clamp(24px, 3.5vw, 40px);
 }
 
 .rating {
@@ -195,7 +201,9 @@ small {
     text-align: center;
     font-size: 12px;
 
-    width: 10%;
+    width: auto;
+    min-width: 140px;
+    max-width: 220px;
 
     margin-left: auto;
     margin-right: auto;
@@ -214,7 +222,9 @@ small {
     text-align: center;
     font-size: 12px;
 
-    width: 15%;
+    width: auto;
+    min-width: 160px;
+    max-width: 240px;
 
     margin-left: auto;
     margin-right: auto;
@@ -230,7 +240,7 @@ p {
 }
 
 .section-text {
-    width: 80%;
+    width: min(90%, 900px);
     text-align: justify;
 
     margin-left: auto;
@@ -245,11 +255,36 @@ p {
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
-
-    width: 75%;
+    
+    width: min(75%, 800px);
+    height: auto;
 
     border: 5px solid rgb(58, 90, 123);
     border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+    .section {
+        width: 92%;
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    .section-title {
+        width: 95%;
+        font-size: 28px;
+        padding: 18px 12px;
+    }
+
+    .section-text {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .game-image {
+        width: 100%;
+        margin-top: 25px;
+    }
 }
 
 footer {
@@ -305,19 +340,23 @@ footer {
     font-family: 'Comfortaa';
     padding: 20px;
     padding-bottom: 20px;
-    width: 280px;
+    width: 300px;
 
     text-align: left;
 
-    height: 180px;
+    height: 250px;
 }
 
 .project-row a {
     text-decoration: none;
 }   
 
+.project-row .project {
+    transition: transform 0.1s ease-in-out;
+}
+
 .project-row a:hover .project {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .offsite-link {
@@ -380,17 +419,22 @@ footer {
 .social-link-row {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
 }
 
 .social-image {
     display: flex;
-    margin-bottom: 10px;
-    height: 100px;
-    width: auto;
-    margin-bottom: 20px;
     justify-content: center;
+    align-items: center;
+    border: 5px solid rgb(34, 53, 72);
+    border-radius: 15px;
+    background-color: rgb(25, 40, 55);
+    padding: 20px;
+    width: 140px;
+    box-sizing: border-box;
 }
 
 .social-link {
@@ -398,13 +442,15 @@ footer {
     color: white;
     text-decoration: none;
     font-family: 'Comfortaa';
-    justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
+    width: 100%;
+    transition: transform 0.1s ease-in-out;
 }
 
 .social-link:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 .social-container {
@@ -417,8 +463,20 @@ footer {
 #github-redirect {
     margin-top: 20px;
     margin-bottom: 50px;
-    margin-right: 50px;
     margin-left: 20px;
+
+    font-size: 14px;
+}
+
+#back-to-top {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    margin-top: 20px;
+    margin-bottom: 50px;
+    margin-left: 0;
+    margin-right: 0;
 
     font-size: 14px;
 }
